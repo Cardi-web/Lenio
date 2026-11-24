@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Λενιώ Grill House – Menu</title>
+<style>
+:root{--bg:#fbf7f4;--card:#fff;--ink:#222;--mut:#6b6b6b;--acc:#c2185b;--line:#eadfe3;--hd:#2a3a8c;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17141a;--card:#221e27;--ink:#f1ecf3;--mut:#a79fae;--acc:#f06292;--line:#3a3342;--hd:#9fb0ff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17141a;--card:#221e27;--ink:#f1ecf3;--mut:#a79fae;--acc:#f06292;--line:#3a3342;--hd:#9fb0ff;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+header{text-align:center;padding:20px 16px 8px}
+header h1{margin:0;font-size:2rem;color:var(--hd);font-style:italic}
+header p{margin:2px 0;color:var(--mut);font-size:.9rem}
+.call{display:inline-block;margin:8px 4px 0;padding:8px 14px;border-radius:99px;background:var(--acc);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 10px;border-bottom:1px solid var(--line)}
+#q{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-size:1rem;margin-bottom:8px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.chips a{flex:none;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;font-size:.85rem}
+main{max-width:720px;margin:0 auto;padding:0 12px 24px}
+h2{color:var(--acc);margin:22px 4px 8px;font-size:1.3rem}
+h2 small{color:var(--mut);font-weight:400;font-size:.8rem;margin-left:6px}
+.note{color:var(--mut);font-size:.82rem;margin:0 4px 8px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;display:flex;gap:10px;justify-content:space-between}
+.item b{display:block}
+.item span{color:var(--mut);font-size:.85rem}
+.p{white-space:nowrap;font-weight:700;text-align:right}
+.p i{display:block;font-style:normal;font-weight:400;color:var(--mut);font-size:.72rem}
+.lang{display:flex;gap:6px;margin-bottom:8px}.lang button{flex:1;padding:7px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:.85rem}.lang button.on{background:var(--acc);color:#fff;border-color:var(--acc)}.item em{display:block;font-style:italic;color:var(--hd);font-size:.88rem}
+footer{text-align:center;color:var(--mut);font-size:.8rem;padding:10px 16px 30px}
+</style>
+</head>
+<body>
+<header>
+<h1>Λενιώ</h1>
+<p>Grill House · Γύρος · Σουβλάκι · Σχάρα</p>
+<p>Π. Τσαλδάρη 13, Άλιμος</p>
+<a class="call" href="tel:+302109810440">📞 210 98 10 440</a><a class="call" href="tel:+302109814114">📞 210 98 14 114</a>
+</header>
+<nav><input id="q" type="search" placeholder="Search / Αναζήτηση…"><div class="lang"><button data-l="both" class="on">ΕΛ + EN</button><button data-l="el">Ελληνικά</button><button data-l="en">English</button></div><div class="chips" id="chips"></div></nav>
+<main id="m"></main>
+<footer>
+<p><b>Delivery:</b> Mon–Fri 17:00–00:00 · Sat–Sun 13:00–00:00 · Min. order €5</p>
+<p>Ώρες delivery: Δευτέρα–Παρασκευή 17:00–00:00 · Σάββατο–Κυριακή 13:00–00:00 · Ελάχιστη παραγγελία 5€</p>
+<p>www.piripiri.gr</p>
+<p>Prices include all legal charges. Meat is fresh, potatoes and vegetables are fresh, frying oil is sunflower oil. The product range is indicative.</p>
+<p>Οι τιμές περιλαμβάνουν όλες τις νόμιμες επιβαρύνσεις. Το κρέας, οι πατάτες και τα λαχανικά μας είναι φρέσκα. Το λάδι τηγανίσματος είναι ηλιέλαιο. Η γκάμα των προϊόντων είναι ενδεικτική.</p>
+</footer>
+<script>
+/* EDIT HERE: each item = [name, description, price] ; price can be "5.00" or "2.40 / 3.80" ; use ["a","b"] for two-column prices */
+const MENU=[
+{id:"app",t:"Ορεκτικά · Appetizers",items:[
+["Tzatziki handmade","","4.00"],["Spicy Feta dip handmade","","4.00"],["Cheese croquettes","6 pcs","5.90"],["Fried zucchini","6 pcs","4.90"],["Falafel","6 pcs","4.50"],["Grilled feta","","5.00"],["Saganaki","Pan fried cheese","5.00"]]},
+{id:"pot",t:"Πατατούλες · Potatoes & Extras",items:[
+["French fries (fresh)","","4.00"],["Fries with mustard or pink sauce","","4.40"],["Fries with Cheddar or Gouda","","4.80"],["Fries with Cheddar & Bacon","","5.30"],["Pita","","0.40"],["Whole wheat pita","","0.50"],["Sauce: mustard / pink / BBQ","","0.80"],["Sauce portion","","2.50"]]},
+{id:"sal",t:"Σαλάτες · Salads",items:[
+["Piri Piri","Chicken gyros, tomato, lettuce, cucumber, sauce, corn, mustard sauce","8.70"],
+["Caesar","Breaded chicken fillet, parmesan, iceberg, lettuce, croutons, corn, Caesar sauce","8.50"],
+["Arugula Haloumi & Bacon","Haloumi, bacon, walnuts, cherry tomatoes, arugula, lettuce, balsamic","8.90"],
+["Eggs, feta, potatoes & rusk","","8.90"],
+["Chef","Ham, gouda, egg, lettuce, tomato, cucumber, cocktail dressing","7.90"],
+["Greek Salad","Feta, tomato, cucumber, olives, onion, peppers, extra virgin olive oil, oregano","8.50"],
+["Dakos (Ντάκος)","Barley rusks, feta, anthotyro, tomato, olives, onion, olive oil, oregano","8.00"],
+["Seasonal salad","Cabbage, carrot, lettuce, vinaigrette","6.00"]]},
+{id:"grill",t:"Στα κάρβουνα · From the Grill",note:"Left: pieces with bread · Right: pita wrapped",items:[
+["Chicken Gyros","","—|3.80"],["Pork Gyros","","—|3.80"],["Chicken skewer 120gr","","2.40|3.80"],["Pork skewer 120gr","","2.40|3.80"],["Kebab","","2.40|3.80"],["Chicken Kebab","","2.40|3.80"],["Philadelphia Kebab","","2.40|3.80"],["Yogurtlu Kebab","","—|3.80"],["Beef Burger patty","","2.30|3.80"],["Village sausage","","2.30|3.80"],["Smoked traditional sausage","","2.40|3.80"],["Fried chicken","","—|3.80"],["Chicken / ChickenBacon","","2.70|4.10"],["Cheddarino","Pork skewer, cheddar & bacon","—|4.10"],["Vegy Burger","","2.20|3.60"],["Falafel","","—|3.60"]]},
+{id:"por",t:"Μερίδες · Portions",note:"Served with fries, cabbage-carrot salad, sauce & pita",items:[
+["Chicken Gyros","","10.80"],["Pork Gyros","","10.70"],["Chicken Skewers 120gr","3 skewers","9.90"],["Pork Skewers 120gr","3 skewers","9.80"],["Traditional Kebabs","3 kebabs","10.90"],["Philadelphia Kebab","3 kebabs","10.90"],["Yogurtlu Kebab","3 kebabs with yogurt","11.50"],["Chicken Bacon skewers","3 skewers","10.90"],["Juicy Pork Steak","Pork steaks, fries, cabbage-carrot, tzatziki, pita","10.70"],["Chicken fillet (grilled)","Pita, mixed salad, vinaigrette","9.90"],["Beef Burgers","2 handmade patties","11.00"],["Vegy Burgers","2 burgers","8.50"],["Village sausages","2 sausages, fries, mustard, pita","8.90"]]},
+{id:"bur",t:"Burger",note:"Beef patty 170gr in potato bun · Left: single · Right: with fries",items:[
+["1. Giga Cheese Burger classic","Gouda, caramelised onion, tomato, pickles, ketchup, mustard","6.50|7.50"],
+["2. Giga Cheese Bacon Lover","Bacon, gouda, tomato, pickles, ketchup, mustard","7.00|8.00"],
+["3. Cheddar & Bacon","Cheddar, bacon, tomato, pickles, caramelised onion, mustard","7.50|8.50"],
+["4. Halloumi Burger","Grilled halloumi, gouda, tomato, pickles, ketchup, mustard","8.40|9.40"],
+["5. Hot Chilly Burger","Bacon, gouda, tomato, pickles, hot sauce","7.00|8.00"],
+["6. Colombo Burger with egg","Beef burger, gouda, bacon, tomato, caramelised onion, mustard, ketchup","8.00|9.00"],
+["8. Caesar Chicken Fillet","Breaded chicken, gouda, cabbage-carrot, tomato, Caesar sauce","7.50|8.50"],
+["9. Falafel Burger","Falafel, lettuce, cabbage-carrot, tomato, ketchup","6.50|7.50"],
+["10. Vegy Burger","Vegy burger, lettuce, cabbage, carrot, tomato, ketchup","6.50|7.50"]]},
+{id:"menu",t:"Menu για καλοφαγάδες · Meal Deals",items:[
+["Mixed Grill","Pork & chicken gyros, pork & chicken skewers, kebab, Philadelphia kebab, beef burger, potatoes/fries, 2 pitas, tzatziki, seasonal salad","29.50"],
+["Kalamaki Menu 1","6 pork or chicken skewers, 1 fries, 1 seasonal salad, bread","18.50"],
+["Kalamaki Menu 2","10 pork or chicken skewers, 1 fries, 1 seasonal salad, bread","26.50"],
+["Kalamaki Menu 3","4 pork + 4 chicken skewers, 1 kebab, 1 fries, 1 seasonal salad, bread","29.50"],
+["½ Grilled Chicken","Charcoal chicken, lemon sauce, seasonal salad","7.90"],
+["Whole Grilled Chicken","Charcoal chicken, lemon sauce, seasonal salad","13.90"],
+["Roast Suckling Pig portion","Traditional style, boneless, with fries, cabbage, pita, mustard","12.90"],
+["Covered Chicken Gyros Pita","Gouda, tomato, lettuce; served with fries","8.50"],
+["Covered Pork Gyros Pita","Gouda, tomato, onion, tzatziki; served with fries","8.50"],
+["XL Club Sandwich 4x4","Gouda, bacon, ham, tomato, lettuce, sauce, mayonnaise; fries & mustard sauce","7.50"],
+["Chicken Nuggets Menu","Nuggets, fries, sauce","7.60"]]},
+{id:"dr",t:"Ποτά · Drinks",items:[
+["Soft drinks 330ml","","1.70"],["Soft drinks 500ml","","2.50"],["Beer 500ml","","3.70"],["Beer 330ml","","2.40"],["Draft beer 400ml","","3.70"],["Wine 500ml","","3.50"],["Tsipouro 200ml","","8.50"],["Ouzo 200ml","","8.50"],["Water 500ml","","0.50"],["Water 1lt","","1.50"],["Sparkling water 330ml","","3.70"]]}
+];
+/* Greek names/descriptions keyed by the English name above: "English name":["Ελληνικό όνομα","Ελληνική περιγραφή"] */
+const GN={grill:"Αριστερά: τεμάχια με ψωμάκι · Δεξιά: τυλιχτό σε πίτα",por:"Σερβίρονται με πατάτες, σαλάτα λάχανο-καρότο, σως & πίτα",bur:"Μπιφτέκι 170γρ σε ψωμί πατάτας · Αριστερά: μόνο · Δεξιά: με πατάτες"};
+const GR={
+"Tzatziki handmade":["Τζατζίκι χειροποίητο"],"Spicy Feta dip handmade":["Τυροκαυτερή χειροποίητη"],"Cheese croquettes":["Τυροκροκέτες","6 τεμ."],"Fried zucchini":["Κολοκυθοκεφτέδες","6 τεμ."],"Falafel":["Φαλάφελ","6 τεμ."],"Grilled feta":["Φέτα στα κάρβουνα"],"Saganaki":["Σαγανάκι","Τηγανητό τυρί"],
+"French fries (fresh)":["Πατάτες τηγανητές φρέσκες"],"Fries with mustard or pink sauce":["Πατάτες με σως κίτρινη ή ροζ"],"Fries with Cheddar or Gouda":["Πατάτες με Cheddar ή Gouda"],"Fries with Cheddar & Bacon":["Πατάτες με Cheddar & Bacon"],"Pita":["Πίτα κλασική"],"Whole wheat pita":["Πίτα ολικής"],"Sauce: mustard / pink / BBQ":["Σως κίτρινη / ροζ / Bbq"],"Sauce portion":["Σως μερίδα"],
+"Piri Piri":["Piri Piri","Γύρος κοτόπουλο, μαρούλι, ντομάτα, αγγούρι, σως, καλαμπόκι, κίτρινη σως"],"Caesar":["Καίσαρα","Φιλέτο κοτόπουλο πανέ, παρμεζάνα, iceberg, μαρούλι, κρουτόν, καλαμπόκι, σως καίσαρα"],"Arugula Haloumi & Bacon":["Ρόκα, Χαλούμι & Μπέικον","Χαλούμι, μπέικον, καρύδια, τοματίνια, ρόκα, μαρούλι, βαλσάμικο"],"Eggs, feta, potatoes & rusk":["Αυγά, φέτα, πατάτες & ξερό ψωμί"],"Chef":["Σεφ","Ζαμπόν, γκούντα, αυγό, μαρούλι, ντομάτα, αγγούρι, σως κοκτέιλ"],"Greek Salad":["Χωριάτικη","Φέτα, ντομάτα, αγγούρι, ελιές, κρεμμύδι, πιπεριές, έξτρα παρθένο ελαιόλαδο, ρίγανη"],"Dakos (Ντάκος)":["Ντάκος","Κριθαρένιο παξιμάδι, φέτα, ανθότυρο, ντομάτα, ελιές, κρεμμύδι, έξτρα παρθένο ελαιόλαδο, ρίγανη"],"Seasonal salad":["Σαλάτα εποχής","Λάχανο, καρότο, μαρούλι, βινεγκρέτ"],
+"Chicken Gyros":["Γύρος κοτόπουλο"],"Pork Gyros":["Γύρος χοιρινός"],"Chicken skewer 120gr":["Καλαμάκι κοτόπουλο 120γρ"],"Pork skewer 120gr":["Καλαμάκι χοιρινό 120γρ"],"Kebab":["Κεμπάπ"],"Chicken Kebab":["Κεμπάπ κοτόπουλο"],"Philadelphia Kebab":["Κεμπάπ Philadelphia","3 κεμπάπ με Philadelphia"],"Yogurtlu Kebab":["Γιαουρτλού κεμπάπ","3 κεμπάπ με γιαούρτι"],"Beef Burger patty":["Μοσχαρίσιο μπιφτέκι"],"Village sausage":["Λουκάνικο χωριάτικο"],"Smoked traditional sausage":["Καπνιστό παραδοσιακό λουκάνικο"],"Fried chicken":["Κοτόπουλο πανέ"],"Chicken / ChickenBacon":["Κοτομπέικον / Chicken Bacon"],"Cheddarino":["Cheddarino","Καλαμάκι χοιρινό, cheddar & bacon"],"Vegy Burger":["Μπιφτέκι λαχανικών"],
+"Chicken Skewers 120gr":["Καλαμάκια κοτόπουλο 120γρ","3 καλαμάκια"],"Pork Skewers 120gr":["Καλαμάκια χοιρινά 120γρ","3 καλαμάκια"],"Traditional Kebabs":["Κεμπάπ παραδοσιακό","3 κεμπάπ"],"Chicken Bacon skewers":["Κοτομπέικον","3 καλαμάκια"],"Juicy Pork Steak":["Ζουμερή χοιρινή μπριζόλα","Μπριζόλες χοιρινές, πατάτες, λάχανο-καρότο, τζατζίκι, πίτα"],"Chicken fillet (grilled)":["Φιλέτο κοτόπουλο ψητό","Πίτα, μικτή σαλάτα, βινεγκρέτ"],"Beef Burgers":["Μπιφτέκια μοσχαρίσια","2 χειροποίητα μπιφτέκια"],"Vegy Burgers":["Μπιφτέκια λαχανικών","2 μπιφτέκια"],"Village sausages":["Λουκάνικο χωριάτικο","2 λουκάνικα, πατάτες, μουστάρδα, πίτα"],
+"1. Giga Cheese Burger classic":["1. Giga Cheese Burger classic","Γκούντα, καραμελωμένο κρεμμύδι, ντομάτα, αγγουράκι τουρσί, κέτσαπ, μουστάρδα"],"2. Giga Cheese Bacon Lover":["2. Giga Cheese Bacon Lover","Bacon, γκούντα, ντομάτα, τουρσί, κέτσαπ, μουστάρδα"],"3. Cheddar & Bacon":["3. Cheddar & Bacon","Cheddar, bacon, ντομάτα, τουρσί, καραμελωμένο κρεμμύδι, μουστάρδα"],"4. Halloumi Burger":["4. Χαλούμι Burger","Χαλούμι ψητό, γκούντα, ντομάτα, τουρσί, κέτσαπ, μουστάρδα"],"5. Hot Chilly Burger":["5. Hot Chilly Burger","Bacon, γκούντα, ντομάτα, τουρσί, καυτερή σως"],"6. Colombo Burger with egg":["6. Colombo Burger με αυγό","Μπιφτέκι, γκούντα, bacon, ντομάτα, καραμελωμένο κρεμμύδι, μουστάρδα, κέτσαπ"],"8. Caesar Chicken Fillet":["8. Caesar Chicken Fillet (φιλέτο πανέ)","Γκούντα, λάχανο-καρότο, ντομάτα, σως καίσαρα"],"9. Falafel Burger":["9. Falafel Burger","Φαλάφελ, μαρούλι, λάχανο-καρότο, ντομάτα, κέτσαπ"],"10. Vegy Burger":["10. Vegy Burger Λαχανικών","Μπιφτέκι λαχανικών, μαρούλι, λάχανο, καρότο, ντομάτα, κέτσαπ"],
+"Mixed Grill":["Mixed Grill κρεατικών","Γύρος χοιρινός & κοτόπουλο, καλαμάκια χοιρινά & κοτόπουλο, κεμπάπ, Philadelphia, μπιφτέκι μοσχαρίσιο, πατάτες, 2 πίτες, τζατζίκι, σαλάτα εποχής"],"Kalamaki Menu 1":["Kalamaki Menu 1","6 καλαμάκια χοιρινά ή κοτόπουλο, 1 μερίδα πατάτες, 1 σαλάτα εποχής, ψωμάκι"],"Kalamaki Menu 2":["Kalamaki Menu 2","10 καλαμάκια χοιρινά ή κοτόπουλο, 1 μερίδα πατάτες, 1 σαλάτα εποχής, ψωμάκι"],"Kalamaki Menu 3":["Kalamaki Menu 3","4 καλαμάκια χοιρινά, 4 κοτόπουλο, 1 κεμπάπ, 1 μερίδα πατάτες, 1 σαλάτα εποχής, ψωμάκι"],"½ Grilled Chicken":["½ Κοτόπουλο οχάρας στα κάρβουνα","Σάλτσα λεμονιού, σαλάτα εποχής"],"Whole Grilled Chicken":["Κοτόπουλο ολόκληρο στα κάρβουνα","Σάλτσα λεμονιού, σαλάτα εποχής"],"Roast Suckling Pig portion":["Μερίδα Γουρουνόπουλο","Παραδοσιακό, χωρίς κόκκαλο, με πατάτες, λάχανο, καρότο, πίτα, μουστάρδα"],"Covered Chicken Gyros Pita":["Πίτα σκεπαστή Γύρο Κοτόπουλο","Γκούντα, ντομάτα, μαρούλι· συνοδεύεται με πατάτες"],"Covered Pork Gyros Pita":["Πίτα σκεπαστή Γύρο Χοιρινό","Γκούντα, ντομάτα, κρεμμύδι, τζατζίκι· συνοδεύεται με πατάτες"],"XL Club Sandwich 4x4":["XL Club Sandwich 4x4","Γκούντα, bacon, ζαμπόν, ντομάτα, μαρούλι, σως, μαγιονέζα· πατάτες & κίτρινη σως"],"Chicken Nuggets Menu":["Μενού Chicken Nuggets","Nuggets, πατάτες, σως"],
+"Soft drinks 330ml":["Αναψυκτικά 330ml"],"Soft drinks 500ml":["Αναψυκτικά 500ml"],"Beer 500ml":["Μπύρες 500ml"],"Beer 330ml":["Μπύρες 330ml"],"Draft beer 400ml":["Draft μπύρα 400ml"],"Wine 500ml":["Κρασί 500ml"],"Tsipouro 200ml":["Τσίπουρο 200ml"],"Ouzo 200ml":["Ούζο 200ml"],"Water 500ml":["Νερό 500ml"],"Water 1lt":["Νερό 1lt"],"Sparkling water 330ml":["Ανθρακούχο νερό 330ml"]};
+let L="both";
+const m=document.getElementById('m'),chips=document.getElementById('chips');
+const T=t=>{const s=t.split(" · ");return L=="el"?s[0]:L=="en"?s[s.length-1]:s.length>1?s[0]+`<small>${s[1]}</small>`:t};
+const G=i=>GR[i[0]]||[i[0],i[1]];
+const I=i=>{const g=G(i),gd=i[1]?(g[1]||i[1]):"",s=x=>x?`<span>${x}</span>`:"";return L=="el"?`<b>${g[0]}</b>${s(gd)}`:L=="en"?`<b>${i[0]}</b>${s(i[1])}`:`<b>${g[0]}</b>${g[0]!=i[0]?`<em>${i[0]}</em>`:""}${s(gd)}${gd!=i[1]?s(i[1]):""}`};
+const N=c=>L=="en"||!GN[c.id]?c.note:L=="el"?GN[c.id]:GN[c.id]+"<br>"+c.note;
+const setChips=()=>chips.innerHTML=MENU.map(c=>{const s=c.t.split(" · ");return `<a href="#${c.id}">${L=="en"?s[s.length-1]:s[0]}</a>`}).join("");
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{L=b.dataset.l;document.querySelectorAll('.lang button').forEach(x=>x.classList.toggle('on',x==b));setChips();render(document.getElementById('q').value)});
+function price(p){const s=p.split('|');if(s.length==2)return `<div class="p">${s[1]=="—"?"":s[1]+"€"}<i>pita</i></div>`.replace(/^/,s[0]=="—"?"":`<div class="p">${s[0]}€<i>bread</i></div>`);return `<div class="p">${p.includes("|")?p:p+"€"}</div>`}
+function render(f=""){f=f.toLowerCase();m.innerHTML=MENU.map(c=>{
+const its=c.items.filter(i=>!f||(i[0]+i[1]+G(i).join(" ")).toLowerCase().includes(f));if(!its.length)return"";
+return `<section id="${c.id}"><h2>${T(c.t)}</h2>${c.note?`<p class="note">${N(c)}</p>`:""}`+its.map(i=>`<div class="item"><div>${I(i)}</div><div style="display:flex;gap:12px">${price(i[2])}</div></div>`).join("")+`</section>`}).join("")}
+setChips();
+document.getElementById('q').oninput=e=>render(e.target.value);
+render();
+</script>
+</body>
+</html>
